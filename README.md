@@ -1,54 +1,33 @@
-# ResearchAndBlogCrew Crew
+# Research & Blog Crew - CrewAI + Ollama
 
-Welcome to the ResearchAndBlogCrew Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+A multi-agent AI system built with **CrewAI** that automatically researches 
+a topic and writes a blog post using a **local LLM (llama3.2:3b via Ollama)** 
 
-## Installation
+## Agents
+- **Report Generator** - Researches the topic and creates a structured report
+- **Blog Writer** - Converts the report into a simple, easy-to-read blog post
 
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+## Tech Stack
+- CrewAI
+- Ollama (llama3.2:3b)
+- Python 3.13
+- uv
 
-First, if you haven't already, install uv:
+## Run it
+1. Install Ollama and pull the model: `ollama pull llama3.2:3b`
+2. Install dependencies: `uv sync`
+3. Add `.env` file with `OPENAI_API_KEY=NA`
+4. Run: `crewai run`
 
-```bash
-pip install uv
-```
+Output is saved to `blogs/blog.md`
 
-Next, navigate to your project directory and install the dependencies:
+## Output
+report task output:
+<img width="1879" height="935" alt="report_task_output" src="https://github.com/user-attachments/assets/9aa60319-63d3-4954-9515-b7904bc5f6da" />
 
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
-```
-### Customizing
+Blog task output:
+<img width="1900" height="956" alt="blog_task_output" src="https://github.com/user-attachments/assets/ddf9e2bb-a258-4772-b3bf-ad4d132f643a" />
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+crew completion:
+<img width="1879" height="943" alt="crew_completed" src="https://github.com/user-attachments/assets/f8206086-e459-4f5e-bad4-4445d6f66da1" />
 
-- Modify `src/research_and_blog_crew/config/agents.yaml` to define your agents
-- Modify `src/research_and_blog_crew/config/tasks.yaml` to define your tasks
-- Modify `src/research_and_blog_crew/crew.py` to add your own logic, tools and specific args
-- Modify `src/research_and_blog_crew/main.py` to add custom inputs for your agents and tasks
-
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-$ crewai run
-```
-
-This command initializes the research_and_blog_crew Crew, assembling the agents and assigning them tasks as defined in your configuration.
-
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
-
-## Understanding Your Crew
-
-The research_and_blog_crew Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
-
-## Support
-
-For support, questions, or feedback regarding the ResearchAndBlogCrew Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
